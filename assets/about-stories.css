@@ -1,0 +1,64 @@
+.about-stories {
+  position: relative;
+  min-width: 0;
+  width: min(100%, 380px);
+  min-height: 500px;
+  aspect-ratio: 4/5;
+  justify-self: center;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 28px;
+  background: var(--ink);
+  color: var(--cream);
+}
+.story-stage { position: absolute; inset: 0; touch-action: pan-y pinch-zoom; }
+.story-panel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 20px 70px;
+  text-align: center;
+  background: var(--story-surface);
+}
+.story-panel[hidden] { display: none; }
+.story-panel--football { --story-surface: #254d3d; }
+.story-panel--biology { --story-surface: #36596a; }
+.story-panel--life { --story-surface: #805346; }
+.story-panel img {
+  display: block;
+  flex: none;
+  width: min(56%, 128px);
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+.story-panel--biology img { object-position: center 30%; }
+.story-panel h3 { margin: 0 0 12px; font-size: 24px; line-height: 1.1; letter-spacing: -.035em; }
+.about-stories .story-panel p { margin: 0; max-width: 27ch; color: var(--cream); font-size: 16px; line-height: 1.5; }
+.story-pagination {
+  position: absolute;
+  z-index: 3;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+.story-pagination button {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  padding: 0;
+  color: var(--cream);
+  background: transparent;
+  touch-action: manipulation;
+}
+.story-pagination button::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; opacity: .45; }
+.story-pagination button[aria-pressed="true"]::before { width: 12px; height: 12px; opacity: 1; }
+.story-pagination button:focus-visible { outline-color: var(--cream); outline-offset: -4px; }
