@@ -9,10 +9,12 @@
   <link rel="stylesheet" href="../assets/outfit.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="../assets/about-stories.css">
+  <link rel="stylesheet" href="../assets/journey-cards.css">
   <script src="script.js" defer></script>
   <script src="../assets/about-stories.js" defer></script>
+  <script src="../assets/journey-cards.js" defer></script>
 </head>
-<body>
+<body class="journey-phone">
 
 <header class="site-header" id="site-header">
   <div class="nav-shell">
@@ -130,7 +132,38 @@
   </section>
 
 <section class="section interests" id="interests" tabindex="-1"><div class="wrap"><div class="index">02 / My Interests</div><h2>Things that <span class="accent">inspire me.</span></h2><div class="cards"><article class="card"><div class="art football-art"><img alt="Football manga illustration" loading="lazy" decoding="async" src="../assets/football-manga.jpg"/><span>01 / Football</span></div><div class="cardbody"><div class="meta">Passion / Sport</div><h3>On the pitch.</h3><img alt="Football stadium and pitch viewed from the stands" loading="lazy" decoding="async" class="football-photo" src="../assets/football-stadium.jpg"/><p>Football has taught me about teamwork, discipline and growing through every challenge.</p><div class="football-story"><div class="football-story-title">My Football Journey</div><p>I have been playing football for 12 years. When I was seven years old, my parents encouraged me to join a football club called Kitchee. That was where my football journey began.</p></div></div></article><article class="card"><div class="art second technology-preview-art"><img alt="Blue digital brain on a circuit board" loading="lazy" decoding="async" src="../assets/technology-brain.jpg"/><span>02 / Technology</span></div><div class="cardbody"><div class="meta">Curiosity / Learning</div><h3>Beyond the screen.</h3><p>I am a Year 2 student in Artificial Intelligence. Nowadays, AI is becoming a worldwide trend. Every industry is using AI techniques, such as medicine and architecture, to complement their weaknesses. Therefore, I enjoy exploring Artificial Intelligence, design and how technology can turn ideas into something real.</p></div></article></div></div></section>
-<section class="section wrap" id="journey" tabindex="-1"><div class="section-head"><div class="index">03 / My Journey</div><div><h2>Every step <span class="accent">has a story.</span></h2><p>A simple timeline of the experiences that helped shape who I am. Replace these prompts with the moments you want to share.</p><div class="timeline"><article><div class="meta">01</div><h3>My background</h3><p>[Add a short story about where you grew up.]</p></article><article><div class="meta">02</div><h3>My football journey</h3><p>[Add a meaningful football experience.]</p></article><article><div class="meta">03</div><h3>University life</h3><p>[Add what you are learning and exploring now.]</p></article></div></div></div></section>
+<section class="section wrap" id="journey" tabindex="-1" data-journey aria-label="My journey" aria-roledescription="carousel">
+  <div class="journey-layout">
+    <div class="journey-intro">
+      <div class="index">03 / My Journey</div>
+      <h2>Every step<br><span class="accent">has a story.</span></h2>
+      <p>A little of where I started, what drives me and what I am learning next.</p>
+      <div class="journey-picker" role="group" aria-label="Choose a chapter">
+        <button class="journey-choice" type="button" data-journey-choice aria-pressed="true" aria-controls="journey-background"><span>01</span> My background <span aria-hidden="true">&#8599;</span></button>
+        <button class="journey-choice" type="button" data-journey-choice aria-pressed="false" aria-controls="journey-football"><span>02</span> Football <span aria-hidden="true">&#8599;</span></button>
+        <button class="journey-choice" type="button" data-journey-choice aria-pressed="false" aria-controls="journey-university"><span>03</span> University life <span aria-hidden="true">&#8599;</span></button>
+      </div>
+    </div>
+    <div class="journey-visual">
+      <div class="journey-deck">
+        <article class="journey-card" id="journey-background" data-journey-card role="group" aria-label="1 of 3: My background" aria-roledescription="slide">
+          <div class="journey-card-media"><img src="../assets/values-street.jpg" alt="A tree-lined street under a blue sky" loading="lazy" decoding="async" draggable="false"><span class="journey-card-number" aria-hidden="true">01</span></div>
+          <div class="journey-card-copy"><div class="meta">The person behind the name</div><h3>My background</h3><p>I am Freeman Cheung, a university student studying Artificial Intelligence. Football is an important part of my life, alongside learning, curiosity and creativity.</p><span class="journey-card-rule" aria-hidden="true"></span></div>
+        </article>
+        <article class="journey-card" id="journey-football" data-journey-card role="group" aria-label="2 of 3: My football journey" aria-roledescription="slide">
+          <div class="journey-card-media"><img src="../assets/football-journey-2014.jpg" alt="Children practising football beside a goal" loading="lazy" decoding="async" draggable="false"><span class="journey-card-number" aria-hidden="true">02</span></div>
+          <div class="journey-card-copy"><div class="meta">2014 to Now</div><h3>My football journey</h3><p>My football journey began at Kitchee in 2014. I later played for Sha Tin and South China, and I now play for BC Rangers. Each club has taught me about teamwork, discipline and resilience.</p><span class="journey-card-rule" aria-hidden="true"></span></div>
+        </article>
+        <article class="journey-card" id="journey-university" data-journey-card role="group" aria-label="3 of 3: University life" aria-roledescription="slide">
+          <div class="journey-card-media"><img src="../assets/technology-brain.jpg" alt="A digital brain illustration representing artificial intelligence" loading="lazy" decoding="async" draggable="false"><span class="journey-card-number" aria-hidden="true">03</span></div>
+          <div class="journey-card-copy"><div class="meta">Learning &amp; exploring</div><h3>University life</h3><p>At university, I am learning HTML, CSS, JavaScript and Python. I also work with AI agents to build websites, write code and debug problems. This website gives me a chance to put what I learn into practice.</p><span class="journey-card-rule" aria-hidden="true"></span></div>
+        </article>
+      </div>
+      <div class="journey-controls"><p class="journey-count"><span data-journey-count>01</span> / 03 &nbsp; CHAPTERS</p><div class="journey-arrows"><button type="button" data-journey-prev aria-label="Previous journey card"><span aria-hidden="true">&#8592;</span></button><button type="button" data-journey-next aria-label="Next journey card"><span aria-hidden="true">&#8594;</span></button></div></div>
+      <span class="sr-only" data-journey-status aria-live="polite" aria-atomic="true"></span>
+    </div>
+  </div>
+</section>
 <section class="section alt" id="work" tabindex="-1"><div class="wrap"><div class="index">04 / Experiences &amp; Projects</div><h2>Little things, <span class="accent">big meaning.</span></h2><p>Two spaces for projects, activities or memorable experiences — not necessarily professional work.</p><div class="cards"><article class="card"><div class="art football-art"><img alt="Children practising football beside a goal" loading="lazy" decoding="async" src="../assets/football-journey-2014.jpg"/><span>01 / Football</span></div><div class="cardbody"><div class="meta">2014 to Now</div><h3>Football is more than a Game</h3><p>My football journey began at Kitchee in 2014. I later played for Sha Tin and South China, and I now play for BC Rangers. Each club has shaped my growth as a player, teaching me teamwork, discipline and resilience.</p></div></article><article class="card"><div class="art second biology-art"><img alt="Orange-lit biology laboratory experiment" loading="lazy" decoding="async" src="../assets/biology-experiment.jpg"/><span>02 / Biology</span></div><div class="cardbody"><div class="meta">2018 To Now</div><h3>Biology</h3><p>My interest in biology has grown since 2018. I represented my school in an Asia-Pacific biology competition, reaching the semi-finals. Preparing for the competition helped me develop scientific reasoning, careful observation and problem-solving skills. Now studying Artificial Intelligence, I am interested in how technology can support biological research.</p></div></article></div></div></section>
 <section class="section wrap" id="values" tabindex="-1"><div class="section-head"><div class="values-left"><div class="index">05 / What I Believe</div><img class="values-photo" src="../assets/values-street.jpg" alt="Tree-lined road beneath a blue sky" loading="lazy" decoding="async"/></div><div><h2>Words I <span class="accent">live by.</span></h2><blockquote class="quote">“Cherish Every Encounter.<br/>Always Be Grateful for what you have”</blockquote></div></div></section>
 <section class="section contact alt" id="contact" tabindex="-1"><div class="wrap"><div class="index">06 / Stay Connected</div><h2>Let's <span class="accent">connect.</span></h2><p>Thanks for taking the time to get to know me.<br/>Feel free to connect with me on Instagram.</p><p><a aria-label="Freeman on Instagram, freemancheung412" class="textlink" href="https://www.instagram.com/freemancheung412/" rel="noopener noreferrer" target="_blank">Instagram · @freemancheung412 ↗</a></p><a class="textlink" href="#top">Back to the top ↑</a></div></section></main>
