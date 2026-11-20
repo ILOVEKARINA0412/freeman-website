@@ -1,0 +1,67 @@
+/* Original native card stack. References: Swiper Effect Cards; Codrops StackMotionHoverEffects. */
+#journey .journey-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.65fr); gap: clamp(28px, 5vw, 70px); align-items: center; }
+#journey .journey-intro h2 { font-size: clamp(42px, 5.4vw, 72px); }
+#journey .journey-intro > p { max-width: 34ch; }
+.journey-picker, .journey-controls { display: none; }
+[data-journey-enhanced] .journey-picker { display: flex; flex-direction: column; gap: 8px; margin-top: 30px; }
+.journey-choice { display: flex; gap: 13px; align-items: center; width: 100%; padding: 13px 16px; border: 1px solid transparent; border-radius: 15px; text-align: left; background: transparent; color: var(--muted); transition: background .22s, border-color .22s, color .22s; }
+.journey-choice > span:first-child { font-size: 12px; letter-spacing: .08em; opacity: .75; }
+.journey-choice > span:last-child { margin-left: auto; }
+.journey-choice[aria-pressed="true"] { background: var(--cream); border-color: var(--line); color: var(--ink); box-shadow: 0 5px 14px #20312c07; }
+.journey-choice[aria-pressed="true"] > span:first-child { color: #a73821; opacity: 1; }
+.journey-visual { min-width: 0; padding: 24px 20px 0; }
+.journey-deck { display: grid; gap: 22px; isolation: isolate; touch-action: pan-y; }
+.journey-card { min-width: 0; margin: 0; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1fr); border: 1px solid #20312c29; border-radius: 26px; background: var(--cream); box-shadow: 0 16px 40px #20312c12; overflow: hidden; }
+.journey-card-media { position: relative; min-width: 0; min-height: 380px; background: var(--green); }
+.journey-card-media img { position: absolute; inset: 0; display: block; width: 100%; height: 100%; object-fit: cover; pointer-events: none; user-select: none; }
+.journey-card-media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(transparent 45%, #142a24a6); }
+.journey-card-number { position: absolute; z-index: 1; bottom: 18px; left: 22px; color: var(--cream); font-size: clamp(56px, 7vw, 88px); font-weight: 600; line-height: 1; letter-spacing: -.06em; }
+.journey-card-copy { min-width: 0; align-self: center; padding: clamp(23px, 2.5vw, 34px); }
+#journey .journey-card h3 { margin: 13px 0 18px; font-size: clamp(26px, 2.9vw, 38px); line-height: 1.05; letter-spacing: -.045em; }
+#journey .journey-card p { margin-bottom: 0; font-size: 16px; line-height: 1.65; overflow-wrap: anywhere; }
+.journey-card-rule { display: block; width: 38px; height: 4px; border-radius: 4px; background: var(--orange); margin: 22px 0 0; }
+[data-journey-enhanced] .journey-deck { gap: 0; cursor: grab; }
+[data-journey-enhanced] .journey-deck:active { cursor: grabbing; }
+[data-journey-enhanced] .journey-card { grid-area: 1 / 1; transform-origin: 50% 88%; transition: transform .58s cubic-bezier(.22, .8, .25, 1), background .35s, box-shadow .4s; }
+[data-journey-enhanced] .journey-card[data-slot="0"] { z-index: 3; transform: none; }
+[data-journey-enhanced] .journey-card[data-slot="1"] { z-index: 2; transform: translate(10px, -12px) rotate(3deg) scale(.97); background: #d7dfcf; box-shadow: none; }
+[data-journey-enhanced] .journey-card[data-slot="2"] { z-index: 1; transform: translate(-7px, -23px) rotate(-4deg) scale(.94); background: #b7c8b9; box-shadow: none; }
+[data-journey-enhanced] .journey-card[aria-hidden="true"] { pointer-events: none; }
+[data-journey-enhanced] .journey-card[aria-hidden="true"] > * { visibility: hidden; }
+[data-journey-enhanced] .journey-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 26px; }
+#journey .journey-count { margin: 0; color: var(--green); font-size: 13px; letter-spacing: .08em; }
+.journey-count [data-journey-count] { color: var(--ink); font-weight: 600; }
+.journey-arrows { display: flex; gap: 8px; }
+.journey-arrows button { display: grid; place-items: center; width: 46px; height: 46px; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--ink); font-size: 23px; transition: background .2s, color .2s; }
+.journey-arrows button:hover { background: var(--ink); color: var(--cream); }
+@media (hover: hover) and (pointer: fine) {
+  [data-journey-enhanced] .journey-visual:hover .journey-card[data-slot="1"] { transform: translate(14px, -15px) rotate(5deg) scale(.97); }
+  [data-journey-enhanced] .journey-visual:hover .journey-card[data-slot="2"] { transform: translate(-12px, -27px) rotate(-6deg) scale(.94); }
+}
+/* The dedicated mobile template remains a phone layout even on a wide screen. */
+.journey-phone #journey .journey-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+.journey-phone [data-journey-enhanced] .journey-picker { flex-direction: row; flex-wrap: wrap; gap: 6px; margin-top: 22px; }
+.journey-phone .journey-choice { width: auto; flex: 1 1 auto; justify-content: center; padding: 10px 9px; font-size: 13px; gap: 6px; }
+.journey-phone .journey-choice > span:last-child { display: none; }
+.journey-phone .journey-visual { padding: 22px 13px 0; }
+.journey-phone .journey-card { grid-template-columns: minmax(0, 1fr); border-radius: 22px; }
+.journey-phone .journey-card-media { min-height: 180px; }
+.journey-phone .journey-card-copy { padding: 24px; }
+.journey-phone #journey .journey-card h3 { font-size: 30px; }
+.journey-phone #journey .journey-intro h2 { font-size: 44px; }
+@media (max-width: 800px) {
+  #journey .journey-layout { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  [data-journey-enhanced] .journey-picker { flex-direction: row; flex-wrap: wrap; gap: 6px; margin-top: 22px; }
+  .journey-choice { width: auto; flex: 1 1 auto; justify-content: center; padding: 10px; font-size: 13px; gap: 6px; }
+  .journey-choice > span:last-child { display: none; }
+}
+@media (max-width: 500px) {
+  .journey-visual { padding: 22px 13px 0; }
+  .journey-card { grid-template-columns: minmax(0, 1fr); border-radius: 22px; }
+  .journey-card-media { min-height: 180px; }
+  .journey-card-copy { padding: 24px; }
+  #journey .journey-card h3 { font-size: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-journey-enhanced] .journey-card, .journey-choice, .journey-arrows button { transition: none; }
+}
